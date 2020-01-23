@@ -15,4 +15,4 @@ line.each do |blue|
   puts name_tag_text(blue)
 end
 
-# a lot of the methods we discussed, weren't put in this file, and were just used in IRB, sorry
+# a lot of the methods we discussed, weren't put in this file, and were just used in IRB or Pry, sorry
