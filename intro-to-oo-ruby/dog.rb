@@ -13,7 +13,7 @@ class Dog
 end
 
 class Human
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :height
 
   attr_reader :happiness
 
