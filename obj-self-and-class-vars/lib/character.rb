@@ -1,20 +1,26 @@
-require 'pry'
-
 class Character
-  attr_accessor :strength, :name, :score
+  attr_accessor :strength, :name, :score, :level, :klass, :lives, :speed, :health
 
   @@all = []
 
+  def self.new_from_hash(hash)
+    new("").tap { |c| hash.each { |properties, value| c.send("#{properties}=", value)}}
+  end
+
+  def self.all
+    @@all
+  end
+
   def self.strong(name)
     char = self.new(name)
-    char.strength = 500
+    char.strength = "500"
 
     char
   end
 
   def self.weak(name)
     char = self.new(name)
-    char.strength = 5
+    char.strength = "5"
     char
   end
 
@@ -26,38 +32,51 @@ class Character
   end
 
 
-  def say_attributes
-    puts "Name: " + self.name
-    puts "Strength: " + self.strength.to_s
-    puts "Score: " + self.score.to_s
-  end
+  def description
+    <<~END
+    
+    Name: #{name}
+    Strength: #{strength}
+    Score: #{score}
+    Class: #{klass}
+    Level: #{level}
+    Lives: #{lives}
+    Speed: #{speed}
+    Health: #{health}
 
+    END
+  end
 
 end
 
-character = Character.new("asdf")
-character.strength = 40
-strong_guy = Character.strong("bob")
-weak_guy = Character.weak('joe')
+details = {
+  name: "Biff",
+  level: 5,
+  klass: "Knight",
+  strength: 17,
+  lives: 3,
+  speed: 6,
+  health: 100,
+}
 
-another_strong = Character.strong("asdf")
 
-character.say_attributes
-strong_guy.say_attributes
-weak_guy.say_attributes
+biff = Character.new_from_hash(details)
 
-binding.pry
-#
-# details = {
-#   name: "Biff",
-#   level: 5,
-#   klass: "Knight",
-#   score: 2400,
-#   strength: 17,
-#   lives: 3,
-#   speed: 6,
-#   health: 100
-# }
+skriff = Character.new_from_hash({
+  name: "Skriff",
+  level: 9,
+  klass: "Ranger",
+  strength: 14,
+  lives: 2,
+  speed: 15,
+  health: 100,
+})
+
+
+
+
+
+
 #
 # # biff = Character.new("Biff", 5, "Knight", 2400, 17, 3, 6, 100)
 # biff = Character.create(details)
