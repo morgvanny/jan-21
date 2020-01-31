@@ -1,5 +1,6 @@
 class Character
-  attr_accessor :strength, :name, :score, :level, :klass, :lives, :speed, :health
+  attr_accessor :strength, :name, :klass, :lives, :speed, :health
+  attr_reader :score, :level
 
   @@all = []
 
@@ -12,16 +13,11 @@ class Character
   end
 
   def self.strong(name)
-    char = self.new(name)
-    char.strength = "500"
-
-    char
+    new(name).tap {|c| c.strength = "500"}
   end
 
   def self.weak(name)
-    char = self.new(name)
-    char.strength = "5"
-    char
+    new(name).tap {|c| c.strength = "5"}
   end
 
 
@@ -34,8 +30,8 @@ class Character
 
   def description
     <<~END
-    
-    Name: #{name}
+
+      Name: #{name}
     Strength: #{strength}
     Score: #{score}
     Class: #{klass}
@@ -46,6 +42,10 @@ class Character
 
     END
   end
+
+  private
+
+  attr_writer :score, :level
 
 end
 
@@ -62,6 +62,8 @@ details = {
 
 biff = Character.new_from_hash(details)
 
+
+
 skriff = Character.new_from_hash({
   name: "Skriff",
   level: 9,
@@ -72,13 +74,7 @@ skriff = Character.new_from_hash({
   health: 100,
 })
 
+array = [3,2,4,5]
+sorted = array.tap{|a| a.pop}.sort
 
-
-
-
-
-#
-# # biff = Character.new("Biff", 5, "Knight", 2400, 17, 3, 6, 100)
-# biff = Character.create(details)
-#
-# biff.say_description
+binding.pry
