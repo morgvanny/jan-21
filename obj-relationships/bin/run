@@ -2,4 +2,12 @@
 
 require_relative "../config/environment"
 
+
+cc = CharacterCreator.new
+10.times{ cc.fake }
+
+Character.all.each{|c| c.user=(User.all.sample) }
+
+binding.pry
+
 Cli.new.run

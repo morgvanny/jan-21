@@ -10,6 +10,7 @@ class Cli
     puts "Here is a list of options"
     puts "Type 1 to create a character"
     puts "Type 2 to list your characters"
+    puts "Type 3 to list your users"
     puts "Type exit to exit program"
     menu_input
   end
@@ -24,6 +25,10 @@ class Cli
     elsif user_input == "2"
       list_characters
       list_characters_menu
+      menu
+    elsif user_input == "3"
+      list_users
+      list_users_menu
       menu
     else
       incorrect_input
@@ -77,6 +82,15 @@ class Cli
     puts "-----------"
   end
 
+  def list_users
+    puts "Here's a list of all the users you've created! And if you didn't create them, make sure to run anti-virus scans often or ask your other half."
+    puts "-----------"
+    User.all.each.with_index(1) do |u, index|
+      puts "#{index}. #{u.name}"
+    end
+    puts "-----------"
+  end
+
   def list_characters_menu
     # problems:
     # there is no error handling
@@ -85,5 +99,15 @@ class Cli
     input = gets.strip.to_i - 1
     character = Character.all[input]
     puts character.description # <-- my goal
+  end
+
+  def list_users_menu
+    # problems:
+    # there is no error handling
+    # also, need to convert my input to an integer
+    puts "To view a user's details, enter the corresponding number: "
+    input = gets.strip.to_i - 1
+    u = User.all[input]
+    puts u.description # <-- my goal
   end
 end
