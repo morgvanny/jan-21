@@ -112,7 +112,7 @@ class Cli
     puts "To view a user's details, enter the corresponding number: "
     input = gets.strip.to_i - 1
     if !input.between?(0, User.all.length - 1)
-      puts "Sorry, you must enter a number between 1 and #{Character.all.length}."
+      puts "Sorry, you must enter a number between 1 and #{User.all.length}."
       list_users_menu
     else
       u = User.all[input]
