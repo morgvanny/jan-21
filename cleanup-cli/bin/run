@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'rest-client'
+require 'json'
+require_relative "../config/environment"
+
+Cli.new.run

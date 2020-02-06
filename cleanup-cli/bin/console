@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+require_relative "../config/environment"
+
+# 3.times do
+#   u = User.new(Faker::Name.name, Faker::Address.city)
+#   instance_variable_set("@#{u.name.split(' ')[0].downcase.delete('.')}", u )
+# end
+
+
+# biff = Character.new_from_hash({
+#   name: "Biff",
+#   level: 5,
+#   klass: "Knight",
+#   strength: 17,
+#   lives: 3,
+#   speed: 6,
+#   health: 100,
+# })
+
+skriff = Character.new_from_hash({
+  name: "Skriff",
+  level: 9,
+  klass: "Ranger",
+  strength: 14,
+  lives: 2,
+  speed: 15,
+  health: 100,
+})
+
+
+# cc = CharacterCreator.new
+# 10.times{ cc.fake }
+
+# Character.all.each do |c|
+#   c.user = User.all.sample
+#   instance_variable_set("@#{c.name.downcase}", c )
+# end
+
+# characters = Character.all
+# character_names = characters.map{|c| c.name}
+
+# users = User.all
+# user_names = users.map{|c| c.name}
+
+
+# url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=100"
+# response = RestClient.get(url)
+# hash = JSON.parse(response, symbolize_names: true)
+
+# pokemon = hash[:results].map do |p_hash|
+#   Character.new_from_hash(p_hash)
+# end
+
+# index = gets.strip.to_i - 1
+
+# p = Character.all[index].update_from_pokeapi
+
+# morgan = User.new("Morgan", "Las Vegas")
+# ryan = User.new("Ryan", "San Diego")
+
+binding.pry
