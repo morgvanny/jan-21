@@ -4,7 +4,7 @@ class CharacterCreator
             "Warlock", "Wizard", "Artificer"]
 
   def fake
-    Character.new_from_hash({
+    Pokemon.new_from_hash({
       name: Faker::Name.first_name,
       level: rand(1..20),
       klass: KLASSES.sample,
@@ -22,7 +22,7 @@ class CharacterCreator
     hash = JSON.parse(response, symbolize_names: true)
 
     pokemon = hash[:results].map do |p_hash|
-      Character.new_from_hash(p_hash)
+      Pokemon.new_from_hash(p_hash)
     end
 
     pokemon.each do |c|

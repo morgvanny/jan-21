@@ -1,4 +1,4 @@
-class Character
+class Pokemon
   attr_accessor :strength, :name, :klass, :lives, :speed, :health, :url
   attr_reader :score, :level, :user
 
@@ -37,7 +37,7 @@ class Character
     if user.class == User
     @user = user
     else
-      raise "A character's user must be assigned a user instance."
+      raise "A pokemon's user must be assigned a user instance."
     end
   end
 
