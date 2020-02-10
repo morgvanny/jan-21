@@ -4,7 +4,7 @@ class Cli
     puts "Welcome to the game creation screen"
     morgan = User.new("Morgan", "Las Vegas")
     ryan = User.new("Ryan", "San Diego")
-    CharacterCreator.new.create_characters_from_pokeapi
+    Adapter.new.start
     menu
   end
 

@@ -16,16 +16,14 @@ class CharacterCreator
   end
 
 
-  def create_characters_from_pokeapi
-    url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=100"
-    response = RestClient.get(url)
-    hash = JSON.parse(response, symbolize_names: true)
+  def create_characters_from_pokeapi(hash)
+  
 
-    pokemon = hash[:results].map do |p_hash|
+    pokemon_objects = hash[:results].map do |p_hash|
       Character.new_from_hash(p_hash)
     end
 
-    pokemon.each do |c|
+    pokemon_objects.each do |c|
       c.user = User.all.sample
     end
   end
