@@ -3,4 +3,5 @@ class Doctor < ActiveRecord::Base
   belongs_to :clinic
   has_many :prescriptions
   has_many :patients, through: :appointments
+  has_many :surgeries, through: :appointments
 end
