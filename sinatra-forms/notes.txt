@@ -1,0 +1,56 @@
+REpresentational State Transfer
+  - whatever state we're maintaining should relate to the url
+  - conventions about what urls look like
+
+  resource - has 7 routes associated
+
+  books:
+
+  GET /books - index of all books
+  GET /books/:id - show that book
+  GET /books/new - form to create a new book
+  GET /books/:id/edit - form to edit that book
+  POST /books - create a book
+  PATCH/PUT /books/:id - update that book
+  DELETE /books/:id - destroy that book
+
+
+MVC - separation of concerns
+
+Model
+  - data management
+  - rules about how data can be stored or changed
+  - validation
+  - relationships
+  - database connections
+  - encryption
+
+View
+  - display data to user
+  - receive input from user
+  - browser, gui, terminal
+  - direct interactivity
+  - animation
+  - visualization
+
+Controller
+  - connect model and view
+  - figure out what the user wants
+  - sinatra-specific code
+  - logic of the app
+  - case statements
+  - talks to the model(s) to get needed info, then uses view templates
+    to compile/build a response and send it back
+    OR uses info given to make state changes in models and still use a
+    templates to formulate a response or redirect
+  - authorization
+
+Create Read Update Delete/Destroy
+
+Read - 4 restful routes - index, show, new, edit
+
+Create - create new (post)
+
+Update - update one (patch)
+
+Destroy - delete one
