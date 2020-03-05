@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_04_194345) do
+ActiveRecord::Schema.define(version: 2020_03_04_172213) do
 
   create_table "books", force: :cascade do |t|
     t.string "author"
     t.string "title"
     t.string "snippet"
+    t.string "slug"
+    t.index ["slug"], name: "index_books_on_slug", unique: true
   end
 
 end

@@ -1,1 +1,14 @@
-imaginary form
+<form action="/books<%= "/#{@book.slug}" if @book.id%>" method="POST">
+ <% if @book.id %>
+  <input type="hidden" name="_method" value="PATCH">
+<% end %>
+<% if @book.errors %>
+  <% @book.errors.full_messages.each do |e|%>
+    <p class="error"><%= e %></p>
+  <% end %>
+<% end %>
+<label for="title">Title: </label> 
+<input id="title" name="book[title]" type="text" value="<%=@book.title%>" required/>
+<br/>
+<input type="submit"/>
+</form>
