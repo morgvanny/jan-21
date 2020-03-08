@@ -1,9 +1,12 @@
-class BooksController < Sinatra::Base
-  set :views, './app/views/books'
+class BooksController < ApplicationController
 
   get '/books' do
+    if session[:user_id]
     @books = Book.all
-    erb :index
+    erb :'books/index'
+    else
+      redirect to '/'
+    end
   end
 
   get '/books/new' do

@@ -1,19 +1,15 @@
-<h1>Welcome to our Books App</h1>
-<a href='/red'>red</a>
-<a href='/blue'>blue</a>
-<br />
-
 <% if !@user.errors.empty? %>
   <% @user.errors.full_messages.each do |m| %>
     <p style="color: red;"><%= m %></p>
   <% end %>
 <% end %>
 
-<form action='/login' method="POST">
+<form action='/users' method="POST">
   <label for="username">username: </label> 
   <input id="username" name="user[username]" type="text" required/>
   <label for="password">password: </label> 
   <input id="password" name="user[password]" type="text" required/>
+
+  <input type="hidden" name="extra_key" value="whatever">
   <input type="submit">
 </form>
-<%= @color %>
