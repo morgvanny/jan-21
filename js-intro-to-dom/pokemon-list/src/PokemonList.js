@@ -65,21 +65,3 @@ export default class PokemonList extends Component {
     )
   }
 }
-
-
-const store = [{ counter: 0, timerOn: false }]
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "INCREMENT_COUNTER":
-      return { ...state, counter: state.counter + 1 }
-    case "DECREMENT_COUNTER":
-      return { ...state, counter: state.counter - 1 }
-    case "SET_COUNTER":
-      return { ...state, counter: action.payload.counter }
-    case "TOGGLE_TIMER":
-      return { ...state, timerOn: !state.timerOn }
-    default:
-      return state
-  }
-}
